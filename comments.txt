@@ -1,0 +1,36 @@
+index.hbs to3tbr elhomepage
+const publicDirectory=where you gonna put your fileslike any css
+any javasript frontend
+__dirname it's variable from nodejs give you access to the current publicDirectory
+./ the same level of app.js torch
+(__dirname,where(./ foldername))
+express a3tbro elserver 
+static feh kol elstatic files zy css w js f hhot gowaha eldirectory
+res.render()
+bkhtar eh elfile ely yt3mlo render
+app.use('/',require(/routes/pages.js))
+whenever i go to / i want require the routes page
+form action where you want to send all these values
+action="/auth/register" where i want to send these values from this form
+usually when you want to send some values inside of your database
+the most common http method used is Post method
+router.post you will only can access this route via post when submit the form with method post
+../ one level up
+
+req.body this grapping all the data that we sent from the form and will log in into terminal
+fe elhtml form elname hwa ename ely bstkhdmo b3d kda fe nodejs
+
+db.query('SELECT email from student where email=?',[])  
+? optional
+[]the value of the optional
+await 3lshan momken yakhod few seconds to run 
+hash(what you want to hash,how many rounds) by defult secure is 8 rounds
+
+/*app.get("/",(req,res)=>{
+//res.send("<h1>Home Page</h1>");  
+res.render("index")  //index the name of view page 
+})
+app.get("/register",(req,res)=>{
+    //res.send("<h1>Home Page</h1>");  
+    res.render("register")  
+    })*/

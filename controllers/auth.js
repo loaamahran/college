@@ -1,7 +1,7 @@
 const mysql=require('mysql');
 const jwt=require('jsonwebtoken');
 const bcrypt=require('bcryptjs');
-const { render } = require('ejs');
+const { render } = require('hbs');
 const { cookie } = require('express-validator');
 const {promisify}=require('util');
 const { error } = require('console');
@@ -66,7 +66,7 @@ const password=req.body.password;
 const passwordConfirm=req.body.passwordConfirm;
 const id=req.body.id;
 //const {name,email,password,passwordConfirm}=req.body dh hwa hwa elstor ely fo2
-db.query('SELECT email from student where email=? or id=?',[email,id], async(error,results)=>{
+db.query('SELECT email,id from student where email=? or id=?',[email,id], async(error,results)=>{
 if(error){
 console.log(error);
 }
@@ -157,7 +157,7 @@ expires:new Date(Date.now() + 2*1000),
 httpOnly:true    
 });
 res.status(200).redirect('/');
-
 }
+
 
 

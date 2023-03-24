@@ -15,7 +15,9 @@ res.render('register');
 router.get('/login', (req, res) => {
 res.render('login')
 });
-
+router.get('/login', (req, res) => {
+    res.render('courses')
+    });
 // student profile data only
 router.get("/profile", authController.profileData,(req, res) => {
     if(req.student){ // you grap req from database
@@ -39,4 +41,13 @@ else{
 }
     }) 
   
+router.get('/student/courses',(req,res)=>{
+    res.render('courses',{
+    courses:req.courses    
+    })
+})     
+
+router.get('/student/sections',(req,res)=>{
+    res.render('sections')
+})      
 module.exports=router;

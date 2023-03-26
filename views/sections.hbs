@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">     
-<link rel="stylesheet" href="/style.css">
-<title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <title>Document</title>
 </head>
+
 <body>
-<nav>
-<h4>Node MySQL</h4>
-<ul>
-<li><a href="/">Home</a></li>
-<li><a href="/profile">Profile</a></li>
-<li><a href="/student/courses">Courses</a></li>
-<li><a href="/student/sections">Sections</a></li>
-<li><a href="/auth/logout">Logout</a></li>
-</ul>
-</nav> 
-<div class="container mt-4">
-      <br />
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Lab</th> 
-            <th>Time</th>     
-          </tr>
-        </thead>
-        <tbody>  
+  <nav>
+    <h4>Node MySQL</h4>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/student/courses">Courses</a></li>
+      <li><a href="/student/sections">Sections</a></li>
+      <li><a href="/auth/logout">Logout</a></li>
+    </ul>
+  </nav>
+  <div class="container mt-4">
+    <br />
+    <table class="table">
+      <thead>
         <tr>
-          
+          <th>ID</th>
+          <th>Name</th>
+          <th>Lab</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+
           <th class="sections"></th>
           {{#each sections}}
-            <td>{{sections.id}}</td>
-            <td>{{ sections.name}}</td>
-            <td>{{ courses.lab}}</td>
-            <td>{{ courses.time}}</td>
+          <td>{{sections.id}}</td>
+          <td>{{ sections.name}}</td>
+          <td>{{ courses.lab}}</td>
+          <td>{{ courses.time}}</td>
           {{/each}}
-          </tr>
-          
-        </tbody>
-      </table>
-    </div>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>

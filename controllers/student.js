@@ -1,8 +1,9 @@
-const mysql=require('mysql');
-const jwt=require('jsonwebtoken');
-const bcrypt=require('bcryptjs');
-const db=require('../database/db');
-const express=require('express');
+const mysql = require("mysql");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const Mysql = require("../database/db");
+const db = Mysql.connect();
+const express = require("express");
 const router = express.Router();
 // Database query promises
 const zeroParamPromise = (sql) => {
@@ -22,18 +23,17 @@ const queryParamPromise = (sql, queryParam) => {
     });
   });
 };
-exports.courses=async (req, res) => {
-  let status = 200
+exports.courses = async (req, res) => {
+  let status = 200;
   try {
-    const query = 'SELECT * FROM courses'
-    const [rows] = await db.query(query)
-    res.status(status).json(rows)
+    const query = "SELECT * FROM courses";
+    const [rows] = await db.query(query);
+    res.status(status).json(rows);
   } catch (err) {
-    console.error(err)
-  res.status(status).json()
+    console.error(err);
+    res.status(status).json();
   }
-}
-
+};
 
 /*exports.courses= async(req,res,next)=>{
   //console.log(req.cookies);// check if you hav any cookies in your browser
@@ -66,16 +66,27 @@ exports.courses=async (req, res) => {
 }
 */
 //courses
-exports.courses= async(req,res)=>{
-db.query('select id,name,prerequisites,hall,type,credits,time from courses',(err,res)=>{
-  res.render('courses',{res:courses})
-})
-}
+exports.courses = async (req, res) => {
+  db.query(
+    "select id,name,prerequisites,hall,type,credits,time from courses",
+    (err, res) => {
+      res.render("courses", { res: courses });
+    }
+  );
+};
 
-//sections
-exports.sections= async(req,res)=>{
-  db.query('select * from sections',(err,res)=>{
-    res.render('sections',{res:sections})
-  })
-  }
-  
+// Fixed
+// //sections
+// exports.sections = async (req, res) => {
+//   db.query("select * from sections", (err, sections) => {
+//     console.log({ sections });
+//     res.render("sections", { sections });
+//   });
+// };
+
+// I prefer this way
+const { getAll } = require("../services/sections");
+exports.sections = async (req, res) => {
+  const sections = await getAll();
+  res.render("sections", { sections });
+};
